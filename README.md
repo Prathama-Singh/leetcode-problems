@@ -1,2 +1,2 @@
 # leetcode-problems
-Sliding Window Problems
+Solution to Leet code problems 
