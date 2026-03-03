@@ -4,20 +4,17 @@ public class MaxSubsetAvg {
 
     public double findMaxAverage(int[] nums, int k) {
         int len = nums.length;
-        nums[0] = nums[0];
-        for(int i = 1 ; i < len;i ++){
-            nums[i] = nums[i] + nums[i-1];
+        int sum = 0;
+        for(int i = 0 ; i < k; i ++){
+            sum = sum + nums[i];
         }
-        if(k == len)
-            return nums[len - 1]/(double)k;
-        int start = 0;
-        double avg = nums[k-1]/(double)k;
-        for(int i = k ; i < len && start < len ;i ++){
-            int currentSum = nums[i] - nums[start];
-            avg = Math.max(avg, currentSum/(double)k);
-            start++;
+        int maxSum = sum;
+        for(int i = k ; i < len; i ++){
+            sum += nums[i];
+            sum -= nums[i-k] ;
+            maxSum = Math.max(maxSum, sum);
         }
-        return avg;
+        return maxSum/(double)k;
     }
 
     public static void main(String[] args){
