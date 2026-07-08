@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/house-robber-ii/description/?envType=problem-list-v2&envId=50vif4uc
 class Solution {
 
     public int rob(int[] nums) {
@@ -9,9 +10,6 @@ class Solution {
 
         int dp2[]= new int[nums.length+1];
         Arrays.fill(dp2, -1);
-
-        if (nums.length == 1)
-            return nums[0];
 
         return Math.max(
                 helper(nums, 0, nums.length - 2, dp1),
